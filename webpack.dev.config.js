@@ -56,6 +56,8 @@ module.exports = {
   },
   devtool: 'cheap-source-map',
   devServer: {
+    port: 4040,
+    hot: true,
     contentBase: OUTPUT_DIR,
     stats: {
       colors: true,

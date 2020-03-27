@@ -1,110 +1,114 @@
 {
-  "name": "currency-cop",
-  "version": "2.0.0-beta.16",
-  "description": "Calculate Net Worth in Path of Exile",
-  "author": "Nijiko Yonskai",
-  "license": "MIT",
-  "main": "main.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/currency-cop/currency-cop.git"
-  },
-  "scripts": {
-    "prod": "webpack --config webpack.build.config.js && electron --noDevServer .",
-    "dev": "webpack-dev-server --hot --host 0.0.0.0 --config=./webpack.dev.config.js",
-    "build": "webpack --config webpack.build.config.js",
-    "builder": "electron-builder --publish=never",
-    "package:all": "cross-env NODE_ENV=production npm-run-all package:windows package:mac package:linux",
-    "package:windows": "cross-env NODE_ENV=production npm-run-all build && electron-builder --win --x64 --publish=never",
-    "package:mac": "cross-env NODE_ENV=production npm-run-all build && electron-builder --mac --publish=never",
-    "package:linux": "cross-env NODE_ENV=production npm-run-all build && electron-builder --linux --x64 --publish=never"
-  },
-  "devDependencies": {
-    "babel-core": "6.26.3",
-    "babel-loader": "6.4.1",
-    "babel-plugin-transform-es3-member-expression-literals": "6.22.0",
-    "babel-plugin-transform-es3-property-literals": "6.22.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-es2015": "6.24.1",
-    "babel-preset-react": "6.24.1",
-    "babel-preset-stage-0": "6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "babili-webpack-plugin": "0.0.11",
-    "cross-env": "5.1.4",
-    "css-loader": "0.28.7",
-    "electron": "2.0.8",
-    "electron-builder": "20.26.1",
-    "extract-text-webpack-plugin": "2.1.2",
-    "file-loader": "0.11.2",
-    "html-webpack-plugin": "2.30.1",
-    "npm-run-all": "4.1.2",
-    "react": "15.6.2",
-    "react-dom": "15.6.2",
-    "style-loader": "0.17.0",
-    "typeface-roboto": "0.0.35",
-    "webpack": "2.7.0",
-    "webpack-dev-server": "3.1.11"
-  },
-  "dependencies": {
-    "axios": "0.18.1",
-    "babel-polyfill": "6.26.0",
-    "classnames": "2.2.5",
-    "electron-google-analytics": "^0.1.0",
-    "js-base64": "2.4.8",
-    "jsoncomp": "1.6.1",
-    "material-design-icons": "3.0.1",
-    "moment": "^2.22.2",
-    "moment-shortformat": "^2.1.0",
-    "react-select": "1.1.0",
-    "slugify": "^1.3.0",
-    "timsort": "^0.3.0",
-    "tiny-emitter": "2.0.2"
-  },
-  "build": {
-    "appId": "org.nijiko.made.CurrencyCop",
-    "productName": "CurrencyCop",
-    "artifactName": "${productName}-${version}-${arch}.${ext}",
-    "files": [
-      "dist/",
-      "node_modules/",
-      "main.js",
-      "package.json"
-    ],
-    "publish": {
-      "provider": "github"
+    "name": "currency-cop",
+    "version": "2.0.0-beta.16",
+    "description": "Calculate Net Worth in Path of Exile",
+    "author": "Nijiko Yonskai",
+    "license": "MIT",
+    "main": "main.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/currency-cop/currency-cop.git"
     },
-    "dmg": {
-      "contents": [
-        {
-          "x": 410,
-          "y": 150,
-          "type": "link",
-          "path": "/Applications"
+    "scripts": {
+        "prod": "webpack --config webpack.build.config.js && electron --noDevServer .",
+        "dev": "webpack-dev-server --hot --host 0.0.0.0 --config=./webpack.dev.config.js",
+        "build": "webpack --config webpack.build.config.js",
+        "builder": "electron-builder --publish=never",
+        "package:all": "cross-env NODE_ENV=production npm-run-all package:windows package:mac package:linux",
+        "package:windows": "cross-env NODE_ENV=production npm-run-all build && electron-builder --win --x64 --publish=never",
+        "package:mac": "cross-env NODE_ENV=production npm-run-all build && electron-builder --mac --publish=never",
+        "package:linux": "cross-env NODE_ENV=production npm-run-all build && electron-builder --linux --x64 --publish=never"
+    },
+    "devDependencies": {
+        "babel-core": "6.26.3",
+        "babel-loader": "6.4.1",
+        "babel-plugin-transform-es3-member-expression-literals": "6.22.0",
+        "babel-plugin-transform-es3-property-literals": "6.22.0",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-es2015": "6.24.1",
+        "babel-preset-react": "6.24.1",
+        "babel-preset-stage-0": "6.24.1",
+        "babel-preset-stage-2": "^6.24.1",
+        "babili-webpack-plugin": "0.0.11",
+        "cross-env": "5.1.4",
+        "css-loader": "0.28.7",
+        "electron": "2.0.8",
+        "electron-builder": "20.26.1",
+        "extract-text-webpack-plugin": "2.1.2",
+        "file-loader": "0.11.2",
+        "html-webpack-plugin": "2.30.1",
+        "npm-run-all": "4.1.2",
+        "react": "15.6.2",
+        "react-dom": "15.6.2",
+        "style-loader": "0.17.0",
+        "typeface-roboto": "0.0.35",
+        "webpack": "2.7.0",
+        "webpack-cli": "^3.3.10",
+        "webpack-dev-server": "2.11.0"
+    },
+    "dependencies": {
+        "axios": "0.18.1",
+        "babel-polyfill": "6.26.0",
+        "chart.js": "^2.9.3",
+        "classnames": "2.2.5",
+        "electron-google-analytics": "^0.1.0",
+        "js-base64": "2.4.8",
+        "jsoncomp": "1.6.1",
+        "material-design-icons": "3.0.1",
+        "moment": "^2.22.2",
+        "moment-shortformat": "^2.1.0",
+        "react-chartjs-2": "^2.8.0",
+        "react-select": "1.1.0",
+        "recharts": "^2.0.0-beta.1",
+        "slugify": "^1.3.0",
+        "timsort": "^0.3.0",
+        "tiny-emitter": "2.0.2"
+    },
+    "build": {
+        "appId": "org.nijiko.made.CurrencyCop",
+        "productName": "CurrencyCop",
+        "artifactName": "${productName}-${version}-${arch}.${ext}",
+        "files": [
+            "dist/",
+            "node_modules/",
+            "main.js",
+            "package.json"
+        ],
+        "publish": {
+            "provider": "github"
         },
-        {
-          "x": 130,
-          "y": 150,
-          "type": "file"
+        "dmg": {
+            "contents": [
+                {
+                    "x": 410,
+                    "y": 150,
+                    "type": "link",
+                    "path": "/Applications"
+                },
+                {
+                    "x": 130,
+                    "y": 150,
+                    "type": "file"
+                }
+            ]
+        },
+        "mac": {
+            "icon": "build/icon.icns"
+        },
+        "win": {
+            "icon": "build/icon.ico",
+            "target": [
+                "nsis",
+                "portable"
+            ]
+        },
+        "nsis": {
+            "menuCategory": true,
+            "license": "LICENSE"
+        },
+        "directories": {
+            "buildResources": "build",
+            "output": "release"
         }
-      ]
-    },
-    "mac": {
-      "icon": "build/icon.icns"
-    },
-    "win": {
-      "icon": "build/icon.ico",
-      "target": [
-        "nsis",
-        "portable"
-      ]
-    },
-    "nsis": {
-      "menuCategory": true,
-      "license": "LICENSE"
-    },
-    "directories": {
-      "buildResources": "build",
-      "output": "release"
     }
-  }
 }
