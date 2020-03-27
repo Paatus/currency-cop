@@ -21,6 +21,7 @@
 }
 
 .dropdown-container.show > .dropdown-list {
+  z-index: 2;
   transform: scale(1, 1);
   -ms-transform: scale(1, 1);
   -webkit-transform: scale(1, 1);

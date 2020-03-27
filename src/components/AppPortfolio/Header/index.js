@@ -26,7 +26,8 @@ class PortfolioHeader extends React.Component {
           profit={this.props.change} />
 
         <HeaderChart
-          data={this.props.data} />
+          data={this.props.data}
+          currency={this.props.holdings.currency} />
       </div>
     )
   }
