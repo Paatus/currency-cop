@@ -46,10 +46,14 @@ class ApiClient {
     return this
   }
 
+  stripRoyale(leagues) {
+    return leagues.filter(l => !l.id.toLowerCase().includes("royale"));
+  }
+
   async getLeagues () {
     let leagueCache = this.cache.get(`${this.accountName}-leagues`)
     if (leagueCache) {
-      return leagueCache
+      return this.stripRoyale(leagueCache);
     }
 
     let leagueResponse = await Api.GetLeagues()
@@ -60,7 +64,7 @@ class ApiClient {
       })
     }
 
-    this.cache.set(`${this.accountName}-leagues`, leagueResponse.data, 60 * 60 * 24)
+    this.cache.set(`${this.accountName}-leagues`, this.stripRoyale(leagueResponse.data), 60 * 60 * 24)
     this.cache.save()
 
     return leagueResponse.data
@@ -123,7 +127,7 @@ class ApiClient {
       for (const entry of list.lines) {
         let name = entry.currencyTypeName || entry.name
         let fullName = name
-        
+
         if (name && entry.baseType && name.indexOf(entry.baseType) < 0) {
           fullName = `${name} ${entry.baseType}`
         }
@@ -212,7 +216,7 @@ class ApiClient {
         }))
       }
     }
-  
+
     return output
   }
 
@@ -243,7 +247,7 @@ class ApiClient {
     }
 
     // Not found
-    if (apiResult.status === 404) 
+    if (apiResult.status === 404)
       return items
 
     // Unauthorized
@@ -287,7 +291,7 @@ class ApiClient {
     }
 
     // Not found...
-    if (apiResult.status === 404) 
+    if (apiResult.status === 404)
       return {}
 
     // Unauthorized
